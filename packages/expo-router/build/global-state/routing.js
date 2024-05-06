@@ -91,7 +91,7 @@ function setParams(params = {}) {
     return (this.navigationRef?.current?.setParams)(params);
 }
 exports.setParams = setParams;
-function linkTo(href, { event, relativeToDirectory } = {}) {
+function linkTo(href, { event, relativeToDirectory, unstable_ignoreAnchor } = {}) {
     if ((0, url_1.shouldLinkExternally)(href)) {
         Linking.openURL(href);
         return;
@@ -142,10 +142,10 @@ function linkTo(href, { event, relativeToDirectory } = {}) {
         console.error('Could not generate a valid navigation state for the given path: ' + href);
         return;
     }
-    return navigationRef.dispatch(getNavigateAction(state, rootState, event));
+    return navigationRef.dispatch(getNavigateAction(state, rootState, event, unstable_ignoreAnchor));
 }
 exports.linkTo = linkTo;
-function getNavigateAction(actionState, navigationState, type = 'NAVIGATE') {
+function getNavigateAction(actionState, navigationState, type = 'NAVIGATE', unstable_ignoreAnchor = false) {
     /**
      * We need to find the deepest navigator where the action and current state diverge, If they do not diverge, the
      * lowest navigator is the target.
@@ -192,6 +192,11 @@ function getNavigateAction(actionState, navigationState, type = 'NAVIGATE') {
         payload.screen = actionStateRoute.name;
         // Merge the params, ensuring that we create a new object
         payload.params = { ...params };
+        if (unstable_ignoreAnchor) {
+            // Normally, the new screen will replace the initial screen, but we want to keep the initial screen
+            // then we need to set the initial flag to false
+            payload.initial = false;
+        }
         // Params don't include the screen, thats a separate attribute
         delete payload.params['screen'];
         // Continue down the payload tree

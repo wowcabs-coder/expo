@@ -88,12 +88,18 @@ export type LinkToOptions = {
    * @see: [MDN's documentation on Resolving relative references to a URL](https://developer.mozilla.org/en-US/docs/Web/API/URL_API/Resolving_relative_references).
    */
   relativeToDirectory?: boolean;
+
+  /**
+   * Ignore the initial anchor screen when navigating to a new navigator
+   * @default false
+   */
+  unstable_ignoreAnchor?: boolean;
 };
 
 export function linkTo(
   this: RouterStore,
   href: string,
-  { event, relativeToDirectory }: LinkToOptions = {}
+  { event, relativeToDirectory, unstable_ignoreAnchor }: LinkToOptions = {}
 ) {
   if (shouldLinkExternally(href)) {
     Linking.openURL(href);
@@ -157,13 +163,14 @@ export function linkTo(
     return;
   }
 
-  return navigationRef.dispatch(getNavigateAction(state, rootState, event));
+  return navigationRef.dispatch(getNavigateAction(state, rootState, event, unstable_ignoreAnchor));
 }
 
 function getNavigateAction(
   actionState: ResultState,
   navigationState: NavigationState,
-  type = 'NAVIGATE'
+  type = 'NAVIGATE',
+  unstable_ignoreAnchor = false
 ) {
   /**
    * We need to find the deepest navigator where the action and current state diverge, If they do not diverge, the
@@ -221,6 +228,12 @@ function getNavigateAction(
     payload.screen = actionStateRoute.name;
     // Merge the params, ensuring that we create a new object
     payload.params = { ...params };
+
+    if (unstable_ignoreAnchor) {
+      // Normally, the new screen will replace the initial screen, but we want to keep the initial screen
+      // then we need to set the initial flag to false
+      payload.initial = false;
+    }
     // Params don't include the screen, thats a separate attribute
     delete payload.params['screen'];
 
@@ -259,7 +272,6 @@ function getNavigateAction(
   if (type === 'REPLACE' && navigationState.type === 'tab') {
     type = 'JUMP_TO';
   }
-
   return {
     type,
     target: navigationState.key,
