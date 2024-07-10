@@ -43,7 +43,7 @@ function _getAndroidSplashConfig() {
 }
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const IMAGE_CACHE_NAME = 'splash-android';
-const SPLASH_SCREEN_FILENAME = 'splashscreen_image.png';
+const SPLASH_SCREEN_FILENAME = 'splashscreen_logo.png';
 const DRAWABLES_CONFIGS = {
   default: {
     modes: {
