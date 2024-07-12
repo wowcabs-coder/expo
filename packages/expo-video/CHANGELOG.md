@@ -20,6 +20,8 @@
 
 ### 💡 Others
 
+- [iOS] SharedRef: migrate from `pointer` to `ref`
+
 ## 1.2.0 - 2024-06-20
 
 ### 🎉 New features

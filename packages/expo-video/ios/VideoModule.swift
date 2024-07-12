@@ -130,7 +130,7 @@ public final class VideoModule: Module {
       }
 
       Property("currentTime") { player -> Double in
-        return player.pointer.currentTime().seconds
+        return player.ref.currentTime().seconds
       }
 
       Property("staysActiveInBackground") { player -> Bool in
@@ -148,17 +148,17 @@ public final class VideoModule: Module {
       }
 
       Property("currentTime") { player -> Double in
-        return player.pointer.currentTime().seconds
+        return player.ref.currentTime().seconds
       }
       .set { (player, time: Double) in
         // Only clamp the lower limit, AVPlayer automatically clamps the upper limit.
         let clampedTime = max(0, time)
         let timeToSeek = CMTimeMakeWithSeconds(clampedTime, preferredTimescale: .max)
-        player.pointer.seek(to: timeToSeek, toleranceBefore: .zero, toleranceAfter: .zero)
+        player.ref.seek(to: timeToSeek, toleranceBefore: .zero, toleranceAfter: .zero)
       }
 
       Property("duration") { player -> Double in
-        return player.pointer.currentItem?.duration.seconds ?? 0
+        return player.ref.currentItem?.duration.seconds ?? 0
       }
 
       Property("playbackRate") { player -> Float in
@@ -169,7 +169,7 @@ public final class VideoModule: Module {
       }
 
       Property("isLive") { player -> Bool in
-        return player.pointer.currentItem?.duration.isIndefinite ?? false
+        return player.ref.currentItem?.duration.isIndefinite ?? false
       }
 
       Property("preservesPitch") { player -> Bool in
@@ -198,11 +198,11 @@ public final class VideoModule: Module {
       }
 
       Function("play") { player in
-        player.pointer.play()
+        player.ref.play()
       }
 
       Function("pause") { player in
-        player.pointer.pause()
+        player.ref.pause()
       }
 
       Function("replace") { (player, source: Either<String, VideoSource>?) in
@@ -222,13 +222,13 @@ public final class VideoModule: Module {
       }
 
       Function("seekBy") { (player, seconds: Double) in
-        let newTime = player.pointer.currentTime() + CMTime(seconds: seconds, preferredTimescale: .max)
+        let newTime = player.ref.currentTime() + CMTime(seconds: seconds, preferredTimescale: .max)
 
-        player.pointer.seek(to: newTime)
+        player.ref.seek(to: newTime)
       }
 
       Function("replay") { player in
-        player.pointer.seek(to: CMTime.zero)
+        player.ref.seek(to: CMTime.zero)
       }
     }
 
