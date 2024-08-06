@@ -11,12 +11,13 @@
 ### 💡 Others
 
 - Upgrade `glob@7` to `glob@10`. ([#29894](https://github.com/expo/expo/pull/29894) by [@byCedric](https://github.com/byCedric))
+- Updated snapshots with iOS deployment target set to 15.1. ([#30840](https://github.com/expo/expo/pull/30840) by [@tsapeta](https://github.com/tsapeta))
 
 ## 8.0.8 - 2024-07-11
 
 ### 🐛 Bug fixes
 
-- On `Android`, Build settings related to gradle.properties will now be **merged** (*and deduped*) if they are `Arrays` instead of overwritten. For now the only array value is `extraMavenRepos`. This allow library plugins to use `extraMavenRepos` even if they are not the last plugin called. ([#30269](https://github.com/expo/expo/pull/30269) by [@Titozzz](https://github.com/Titozzz))
+- On `Android`, Build settings related to gradle.properties will now be **merged** (_and deduped_) if they are `Arrays` instead of overwritten. For now the only array value is `extraMavenRepos`. This allow library plugins to use `extraMavenRepos` even if they are not the last plugin called. ([#30269](https://github.com/expo/expo/pull/30269) by [@Titozzz](https://github.com/Titozzz))
 
 ## 8.0.7 - 2024-07-03
 
