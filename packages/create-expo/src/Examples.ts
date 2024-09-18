@@ -66,7 +66,7 @@ async function downloadAndExtractLocalExampleAsync(root: string, name: string) {
     {
       cwd: root,
       file: tarFilePath,
-      transform: createFileTransform(projectName),
+      // transform: createFileTransform(projectName),
       onentry: createEntryResolver(projectName),
       strip: 2,
     },
