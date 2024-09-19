@@ -16,11 +16,11 @@ import host.exp.exponent.notifications.model.ScopedNotificationRequest
 import java.util.*
 
 class ScopedExpoPresentationDelegate(context: Context) : ExpoPresentationDelegate(context) {
-  override fun createNotification(notification: Notification, notificationBehavior: NotificationBehavior?): android.app.Notification =
-    ScopedCategoryAwareNotificationBuilder(context, SharedPreferencesNotificationCategoriesStore(context)).also {
-      it.setNotification(notification)
-      it.setAllowedBehavior(notificationBehavior)
-    }.build()
+//  override fun createNotification(notification: Notification, notificationBehavior: NotificationBehavior?): android.app.Notification =
+//    ScopedCategoryAwareNotificationBuilder(context, SharedPreferencesNotificationCategoriesStore(context)).also {
+//      it.setNotification(notification)
+//      it.setAllowedBehavior(notificationBehavior)
+//    }.build()
 
   override fun getNotification(statusBarNotification: StatusBarNotification): Notification? {
     statusBarNotification.notification.extras.getByteArray(ExpoNotificationBuilder.EXTRAS_MARSHALLED_NOTIFICATION_REQUEST_KEY)?.let {

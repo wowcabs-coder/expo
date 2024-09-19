@@ -53,17 +53,17 @@ class ExpoFirebaseMessagingDelegate(context: Context) : FirebaseMessagingDelegat
     super.onMessageReceived(remoteMessage)
   }
 
-  override fun createNotificationRequest(
-    identifier: String,
-    content: NotificationContent,
-    notificationTrigger: FirebaseNotificationTrigger
-  ): NotificationRequest {
-    val data = notificationTrigger.getRemoteMessage().data
-    return ScopedNotificationRequest(
-      identifier,
-      content,
-      notificationTrigger,
-      data[NotificationConstants.NOTIFICATION_EXPERIENCE_SCOPE_KEY_KEY]
-    )
-  }
+//  override fun createNotificationRequest(
+//    identifier: String,
+//    content: NotificationContent,
+//    notificationTrigger: FirebaseNotificationTrigger
+//  ): NotificationRequest {
+//    val data = notificationTrigger.getRemoteMessage().data
+//    return ScopedNotificationRequest(
+//      identifier,
+//      content,
+//      notificationTrigger,
+//      data[NotificationConstants.NOTIFICATION_EXPERIENCE_SCOPE_KEY_KEY]
+//    )
+//  }
 }

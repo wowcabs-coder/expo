@@ -9,31 +9,31 @@ import expo.modules.notifications.notifications.channels.serializers.Notificatio
 import expo.modules.notifications.notifications.channels.serializers.NotificationsChannelSerializer;
 import host.exp.exponent.kernel.ExperienceKey;
 
-public class ScopedNotificationsChannelsProvider extends AbstractNotificationsChannelsProvider {
-  private ExperienceKey mExperienceKey;
-
-  public ScopedNotificationsChannelsProvider(Context context, ExperienceKey experienceKey) {
-    super(context);
-    mExperienceKey = experienceKey;
-  }
-
-  @Override
-  protected NotificationsChannelManager createChannelManager() {
-    return new ScopedNotificationsChannelManager(mContext, mExperienceKey, getGroupManager());
-  }
-
-  @Override
-  protected NotificationsChannelGroupManager createChannelGroupManager() {
-    return new ScopedNotificationsGroupManager(mContext, mExperienceKey);
-  }
-
-  @Override
-  protected NotificationsChannelSerializer createChannelSerializer() {
-    return new ScopedChannelSerializer();
-  }
-
-  @Override
-  protected NotificationsChannelGroupSerializer createChannelGroupSerializer() {
-    return new ScopedGroupSerializer(getChannelSerializer());
-  }
-}
+//public class ScopedNotificationsChannelsProvider extends AbstractNotificationsChannelsProvider {
+//  private ExperienceKey mExperienceKey;
+//
+//  public ScopedNotificationsChannelsProvider(Context context, ExperienceKey experienceKey) {
+//    super(context);
+//    mExperienceKey = experienceKey;
+//  }
+//
+//  @Override
+//  protected NotificationsChannelManager createChannelManager() {
+//    return new ScopedNotificationsChannelManager(mContext, mExperienceKey, getGroupManager());
+//  }
+//
+//  @Override
+//  protected NotificationsChannelGroupManager createChannelGroupManager() {
+//    return new ScopedNotificationsGroupManager(mContext, mExperienceKey);
+//  }
+//
+//  @Override
+//  protected NotificationsChannelSerializer createChannelSerializer() {
+//    return new ScopedChannelSerializer();
+//  }
+//
+//  @Override
+//  protected NotificationsChannelGroupSerializer createChannelGroupSerializer() {
+//    return new ScopedGroupSerializer(getChannelSerializer());
+//  }
+//}

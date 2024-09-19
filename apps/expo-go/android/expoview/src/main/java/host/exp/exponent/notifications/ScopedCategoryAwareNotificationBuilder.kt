@@ -11,20 +11,20 @@ class ScopedCategoryAwareNotificationBuilder(
   store: SharedPreferencesNotificationCategoriesStore
 ) : ScopedExpoNotificationBuilder(context, store) {
 
-  override fun addActionsToBuilder(
-    builder: NotificationCompat.Builder,
-    categoryIdentifier: String
-  ) {
-    val requester = notification.notificationRequest
-    val content = notificationContent
-    val scopedCategoryIdentifier: String = if (requester is ScopedNotificationRequest) {
-      ScopedNotificationsIdUtils.getScopedCategoryIdRaw(
-        requester.experienceScopeKeyString!!,
-        content.categoryId
-      )
-    } else {
-      content.categoryId
-    }
-    super.addActionsToBuilder(builder, scopedCategoryIdentifier)
-  }
+//  override fun addActionsToBuilder(
+//    builder: NotificationCompat.Builder,
+//    categoryIdentifier: String
+//  ) {
+//    val requester = notification.notificationRequest
+//    val content = notificationContent
+//    val scopedCategoryIdentifier: String = if (requester is ScopedNotificationRequest) {
+//      ScopedNotificationsIdUtils.getScopedCategoryIdRaw(
+//        requester.experienceScopeKeyString!!,
+//        content.categoryId
+//      )
+//    } else {
+//      content.categoryId
+//    }
+//    super.addActionsToBuilder(builder, scopedCategoryIdentifier)
+//  }
 }

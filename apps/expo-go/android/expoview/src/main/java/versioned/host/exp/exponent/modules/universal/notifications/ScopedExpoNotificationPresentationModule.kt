@@ -20,19 +20,19 @@ class ScopedExpoNotificationPresentationModule(
 ) : ExpoNotificationPresentationModule() {
   private val scopedNotificationsUtils = ScopedNotificationsUtils(context)
 
-  override fun createNotificationRequest(
-    identifier: String,
-    content: NotificationContent,
-    trigger: NotificationTrigger?
-  ): NotificationRequest {
-    return ScopedNotificationRequest(identifier, content, trigger, experienceKey.scopeKey)
-  }
-
-  override fun serializeNotifications(notifications: Collection<Notification>): List<Bundle> {
-    return notifications
-      .filter { scopedNotificationsUtils.shouldHandleNotification(it, experienceKey) }
-      .map(NotificationSerializer::toBundle)
-  }
+//  override fun createNotificationRequest(
+//    identifier: String,
+//    content: NotificationContent,
+//    trigger: NotificationTrigger?
+//  ): NotificationRequest {
+//    return ScopedNotificationRequest(identifier, content, trigger, experienceKey.scopeKey)
+//  }
+//
+//  override fun serializeNotifications(notifications: Collection<Notification>): List<Bundle> {
+//    return notifications
+//      .filter { scopedNotificationsUtils.shouldHandleNotification(it, experienceKey) }
+//      .map(NotificationSerializer::toBundle)
+//  }
 
   override fun dismissNotificationAsync(identifier: String, promise: Promise) {
     NotificationsService.getAllPresented(

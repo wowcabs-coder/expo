@@ -12,7 +12,7 @@ import host.exp.exponent.utils.ScopedContext
 import versioned.host.exp.exponent.core.modules.ExpoGoModule
 import versioned.host.exp.exponent.core.modules.ExpoGoUpdatesModule
 import versioned.host.exp.exponent.modules.api.notifications.ScopedNotificationsCategoriesSerializer
-import versioned.host.exp.exponent.modules.api.notifications.channels.ScopedNotificationsChannelsProvider
+//import versioned.host.exp.exponent.modules.api.notifications.channels.ScopedNotificationsChannelsProvider
 import versioned.host.exp.exponent.modules.universal.av.SharedCookiesDataSourceFactoryProvider
 import versioned.host.exp.exponent.modules.universal.notifications.ScopedExpoNotificationCategoriesModule
 import versioned.host.exp.exponent.modules.universal.notifications.ScopedExpoNotificationPresentationModule
@@ -44,7 +44,7 @@ open class ExpoModuleRegistryAdapter(moduleRegistryProvider: ReactModuleRegistry
     moduleRegistry.registerInternalModule(ScopedPermissionsService(scopedContext, experienceKey))
 
     // Overriding expo-notifications classes
-    moduleRegistry.registerInternalModule(ScopedNotificationsChannelsProvider(scopedContext, experienceKey))
+//    moduleRegistry.registerInternalModule(ScopedNotificationsChannelsProvider(scopedContext, experienceKey))
     moduleRegistry.registerInternalModule(ScopedNotificationsCategoriesSerializer())
 
     // ReactAdapterPackage requires ReactContext
