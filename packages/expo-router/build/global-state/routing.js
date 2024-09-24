@@ -93,6 +93,9 @@ function setParams(params = {}) {
 exports.setParams = setParams;
 function linkTo(href, { event, relativeToDirectory } = {}) {
     if ((0, url_1.shouldLinkExternally)(href)) {
+        if (href.startsWith('//')) {
+            href = `https:${href}`;
+        }
         Linking.openURL(href);
         return;
     }
