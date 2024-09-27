@@ -136,4 +136,5 @@ export declare class FileHandle {
   readBytes(length: number): Uint8Array;
   writeBytes(bytes: Uint8Array): void;
   offset: number;
+  size: number;
 }
