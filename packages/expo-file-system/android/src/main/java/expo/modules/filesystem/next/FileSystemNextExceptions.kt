@@ -22,3 +22,8 @@ internal class UnableToReadHandleException(reason: String) :
   CodedException(
     "Unable to read from a file handle: '$reason'"
   )
+
+internal class UnableToWriteHandleException(reason: String) :
+  CodedException(
+    "Unable to write to a file handle: '$reason'"
+  )
