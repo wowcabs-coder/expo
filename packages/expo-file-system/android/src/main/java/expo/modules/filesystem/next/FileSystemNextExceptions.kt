@@ -17,3 +17,8 @@ internal class UnableToDownloadException(reason: String) :
   CodedException(
     "Unable to download a file: '$reason'"
   )
+
+internal class UnableToReadHandleException(reason: String) :
+  CodedException(
+    "Unable to read from a file handle: '$reason'"
+  )

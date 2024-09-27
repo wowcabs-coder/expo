@@ -9,7 +9,7 @@ import kotlin.io.path.moveTo
 // The Path class might be better, but `java.nio.file.Path` class is not available in API 23.
 // The URL, URI classes seem like a less suitable choice.
 // https://stackoverflow.com/questions/27845223/whats-the-difference-between-a-resource-uri-url-path-and-file-in-java
-abstract class FileSystemPath(var file: File) : SharedObject() {
+abstract class FileSystemPath(public var file: File) : SharedObject() {
   fun delete() {
     file.delete()
   }

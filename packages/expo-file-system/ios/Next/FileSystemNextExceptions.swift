@@ -30,3 +30,9 @@ internal class UnableToGetFileSizeException: GenericException<String> {
     "Unable to get file size: \(param)"
   }
 }
+
+internal class UnableToReadHandleException: GenericException<String> {
+  override var reason: String {
+    "Unable to read from a file handle: \(param)"
+  }
+}
