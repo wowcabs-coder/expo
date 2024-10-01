@@ -15,7 +15,6 @@ import com.facebook.react.uimanager.ViewProps
 import com.facebook.yoga.YogaConstants
 import expo.modules.kotlin.apifeatures.EitherType
 import expo.modules.kotlin.exception.Exceptions
-import expo.modules.kotlin.functions.Queues
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 import expo.modules.kotlin.types.Either
@@ -23,7 +22,6 @@ import expo.modules.video.enums.ContentFit
 import expo.modules.video.records.VideoSource
 import expo.modules.video.utils.ifYogaDefinedUse
 import expo.modules.video.utils.makeYogaUndefinedIfNegative
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
