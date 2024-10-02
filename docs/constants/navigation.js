@@ -143,10 +143,10 @@ const general = [
     makePage('guides/environment-variables.mdx'),
     makePage('guides/linking.mdx'),
     makePage('guides/deep-linking.mdx'),
+    makePage('workflow/continuous-native-generation.mdx'),
     makeGroup(
       'Custom native code',
       [
-        makePage('workflow/continuous-native-generation.mdx'),
         makePage('workflow/customizing.mdx'),
         makePage('workflow/prebuild.mdx'),
         makePage('guides/adopting-prebuild.mdx'),
