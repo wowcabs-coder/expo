@@ -77,8 +77,8 @@ export interface LinkProps<T extends string | object>
   /** Should push the current route  */
   push?: boolean;
 
-  /** Should this route replace the initial screen */
-  initial?: boolean;
+  /** If this route loads a new navigator, should its initialRouteName also be loaded. Default: False */
+  withAnchor?: boolean;
 
   /** On web, this sets the HTML `class` directly. On native, this can be used with CSS interop tools like Nativewind. */
   className?: string;
@@ -183,7 +183,7 @@ function ExpoRouterLink(
     rel,
     target,
     download,
-    initial,
+    withAnchor,
     ...rest
   }: LinkProps<any>,
   ref: React.ForwardedRef<Text>
@@ -205,7 +205,12 @@ function ExpoRouterLink(
   if (push) event = 'PUSH';
   if (replace) event = 'REPLACE';
 
-  const props = useLinkToPathProps({ href: resolvedHref, event, relativeToDirectory, initial });
+  const props = useLinkToPathProps({
+    href: resolvedHref,
+    event,
+    relativeToDirectory,
+    withAnchor,
+  });
 
   const onPress = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent> | GestureResponderEvent) => {
     if ('onPress' in rest) {
