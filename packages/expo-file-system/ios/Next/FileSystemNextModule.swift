@@ -123,7 +123,7 @@ public final class FileSystemNextModule: Module {
       Function("writeBytes") { (fileHandle, bytes: Data) in
         try fileHandle.write(bytes)
       }
-      
+
       Function("close") { fileHandle in
         try fileHandle.close()
       }
