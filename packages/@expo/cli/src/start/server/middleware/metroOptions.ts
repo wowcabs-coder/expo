@@ -283,7 +283,6 @@ export function createBundleUrlSearchParams(options: ExpoMetroOptions): URLSearc
     usedExports,
     optimize,
     domRoot,
-    assetPrefix,
   } = withDefaults(options);
 
   const dev = String(mode !== 'production');
@@ -324,9 +323,6 @@ export function createBundleUrlSearchParams(options: ExpoMetroOptions): URLSearc
   }
   if (baseUrl) {
     queryParams.append('transform.baseUrl', baseUrl);
-  }
-  if (assetPrefix) {
-    queryParams.append('transform.assetUrl', assetPrefix);
   }
   if (clientBoundaries?.length) {
     queryParams.append('transform.clientBoundaries', JSON.stringify(clientBoundaries));
