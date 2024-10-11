@@ -69,7 +69,7 @@ export type ReconcileTransformSettings = {
   };
   collectDependenciesOptions: CollectDependenciesOptions;
 
-  unstable_dependencyMapReservedName?: string;
+  unstable_dependencyMapReservedName?: string | null;
   optimizationSizeLimit?: number;
   unstable_disableNormalizePseudoGlobals?: boolean;
 
