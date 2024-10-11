@@ -422,6 +422,7 @@ const general = [
     makePage('distribution/introduction.mdx'),
     makePage('distribution/app-stores.mdx'),
     makePage('distribution/app-transfers.mdx'),
+    makePage('distribution/app-size.mdx'),
   ]),
   makeSection(
     'More',
